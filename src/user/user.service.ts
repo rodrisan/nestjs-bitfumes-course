@@ -10,12 +10,12 @@ export class UserService {
     };
   }
 
-  create(req: Request) {
-    return req.body;
+  create(body: any) {
+    return body;
   }
 
-  update(req: Request, param: { id: number }) {
-    return { body: req.body, param };
+  update(body: any, param: { id: number }) {
+    return { body, param };
   }
 
   show(param: { id: number }) {

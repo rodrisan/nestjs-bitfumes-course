@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
@@ -20,13 +21,13 @@ export class UserController {
   }
 
   @Post()
-  store(@Req() req: Request) {
-    return this._userService.create(req);
+  store(@Body() body: any) {
+    return this._userService.create(body);
   }
 
   @Patch(':id')
-  update(@Req() req: Request, @Param() param: { id: number }) {
-    return this._userService.update(req, param);
+  update(@Body() body: any, @Param() param: { id: number }) {
+    return this._userService.update(body, param);
   }
 
   @Get(':id')
