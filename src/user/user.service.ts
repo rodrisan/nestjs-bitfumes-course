@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Param } from '@nestjs/common';
 import { Request } from 'express';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -16,15 +16,15 @@ export class UserService {
     return createUserDto;
   }
 
-  update(updateUserDto: UpdateUserDto, param: { id: number }) {
-    return { updateUserDto, param };
+  update(updateUserDto: UpdateUserDto, id: number) {
+    return { updateUserDto, id };
   }
 
-  show(param: { id: number }) {
-    return param;
+  show(id: number) {
+    return { id };
   }
 
-  delete(param: { id: number }) {
-    return param;
+  delete(id: number) {
+    return { id };
   }
 }
