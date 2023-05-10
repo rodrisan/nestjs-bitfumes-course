@@ -8,34 +8,34 @@ import {
   Req,
 } from '@nestjs/common';
 import { Request } from 'express';
+import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
+  constructor(private readonly _userService: UserService) {}
+
   @Get()
   getUsers() {
-    return {
-      name: 'Rod',
-      email: 'j@r.s',
-    };
+    return this._userService.get();
   }
 
   @Post()
   store(@Req() req: Request) {
-    return req.body;
-  }
-
-  @Get(':id')
-  find(@Param() params: { id: number }) {
-    return params.id;
+    return this._userService.create(req);
   }
 
   @Patch(':id')
-  update(@Req() req: Request) {
-    return req.body;
+  update(@Req() req: Request, @Param() param: { id: number }) {
+    return this._userService.update(req, param);
+  }
+
+  @Get(':id')
+  getUser(@Param() param: { id: number }) {
+    return this._userService.show(param);
   }
 
   @Delete(':id')
-  delete(@Param() id: number) {
-    return id;
+  delete(@Param() param: { id: number }) {
+    return this._userService.delete(param);
   }
 }
