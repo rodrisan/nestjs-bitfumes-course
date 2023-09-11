@@ -23,7 +23,7 @@
     "@nestjs/common": "^9.4.2",
     "@nestjs/core": "^9.4.2",
     "@nestjs/jwt": "^10.0.3",
-    "@nestjs/passport": "^9.0.3",
+    "@nestjs/passport": "^10.0.2",
     "@nestjs/platform-express": "^9.4.2",
     "@nestjs/typeorm": "^9.0.1",
     "class-transformer": "^0.5.1",
